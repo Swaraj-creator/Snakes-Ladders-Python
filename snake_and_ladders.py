@@ -3,6 +3,7 @@ import colorama
 from colorama import Fore, Style
 from time import sleep
 import emoji
+import os
 
 colorama.init(autoreset=True)
 
@@ -26,6 +27,10 @@ def drawBoard(act, aw):
         [i for i in range(20, 10, -1)],
         [i for i in range(1, 11)]
     ]
+
+    sleep(1)
+    clearConsole()
+
     fakeList = board    ##creating icons on board
     for lst in range(len(fakeList)):
         for item in range(len(fakeList[lst])):
@@ -261,6 +266,7 @@ def main():
         sleep(0.5)
         announcedWinner = False
         activePlayer = 0
+        clearConsole()
         print(Fore.GREEN + Style.BRIGHT + "    <---- Game Started ---->")
         print()
         print(Fore.GREEN + f"   {allPlayersInfo[activePlayer]['color']} - {allPlayersInfo[activePlayer]['name']}'s Turn !")
@@ -375,6 +381,13 @@ def announceWinner(act, allPlayersInfo = allPlayersInfo):
             print(Fore.RED + "\t!!! INVALID INPUT !!!")
             print()
     quit()
+
+def clearConsole():
+    # Clear terminal screen
+    if os.name == 'nt':  # For Windows
+        os.system('cls')
+    else:  # For Linux and macOS
+        os.system('clear')
 
 if __name__ == "__main__":
     main()

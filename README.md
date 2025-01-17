@@ -1,1 +1,1 @@
-<h1 align="center" color="purple">That's How to Play the game..!</h1>
+<h1 align="center" style="color: purple">That's How to Play the game..!</h1>
